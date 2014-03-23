@@ -1,0 +1,62 @@
+﻿<!doctype html>
+
+<html ng-app="mytodoApp">
+	<head>
+		<meta charset="utf-8">
+		<title>My todos</title>
+
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+		<!--link rel="stylesheet" href="bootstrap/css/bootstrap.css"-->
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+		<script src="scripts/app.js"></script>
+		<script src="scripts/controllers/main.js"></script>
+	</head>
+	<body ng-controller="MainController">
+		
+		<div class="container">
+
+			<h2>My todos</h2>
+			
+			<!-- Todos input -->
+			<form ng-submit="addTodo()">
+				<div class="row">
+
+					<div class="input-group">
+						<input type="text" ng-model="newTodo" placeholder="What needs to be done?" class="form-control">
+						<span class="input-group-btn">
+							<button class="btn btn-primary" ng-click="addTodo()">Add</button>
+						</span>
+					</div>
+				</div>
+			</form>
+			<p></p>
+			
+			<!-- Todos list -->
+			<div class="row">
+				<p class="input-group" ng-repeat="todo in todos">
+					<input type="text" ng-model="todo" class="form-control">
+					<span class="input-group-btn">
+						<button class="btn btn-default" ng-click="moveUpTodo($index)">
+							<span class="glyphicon glyphicon-chevron-up"></span>
+						</button>
+					</span>
+					<span class="input-group-btn">
+						<button class="btn btn-default" ng-click="moveDownTodo($index)">
+							<span class="glyphicon glyphicon-chevron-down"></span>
+						</button>
+					</span>
+					<span class="input-group-btn">
+						<button class="btn btn-danger" ng-click="removeTodo($index)" aria-label="Remove">X</button>
+					</span>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
