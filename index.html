@@ -40,7 +40,7 @@
 			<!-- Todos list -->
 			<div class="row">
 				<p class="input-group" ng-repeat="todo in todos">
-					<input type="text" ng-model="todo" class="form-control">
+					<input type="text" ng-model="todo" class="form-control" readonly>
 					<span class="input-group-btn">
 						<button class="btn btn-default" ng-click="moveUpTodo($index)">
 							<span class="glyphicon glyphicon-chevron-up"></span>
